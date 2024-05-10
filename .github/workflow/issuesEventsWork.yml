@@ -1,6 +1,6 @@
 name: Evento issues Teste 
 on: [issues, workflow_dispatch]
-types: [opened, edited, milestoned]
+  types: [opened, edited, milestoned]
 jobs:
   issuesTest:
     runs-on: ubuntu-latest
