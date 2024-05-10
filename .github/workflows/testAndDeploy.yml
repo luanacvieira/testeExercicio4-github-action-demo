@@ -1,7 +1,7 @@
 name: Teste automatico and Deploy Project in event PUSH
 on: [push, workflow_dispatch]
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     steps:
         - name: Get Code
@@ -12,8 +12,24 @@ jobs:
             node-version: 18
         - name: Install Dependencias
           run: npm ci
-        - name: Execute testes
-          run: npm test  
+        - name: LINT Execute testes 
+          run: npm run lint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get Code
+          uses: actions/checkout@v4
+        - name: Install NODE JS
+          uses: actions/setup-node@v4
+          with:
+            node-version: 18
+        - name: Install Dependencias
+          run: npm ci
+        - name: TESTES Code
+          run: npm run test
+#        - name: BUILD Project
+#          run: npm run build
   deploy:
     needs: test
     runs-on: ubuntu-latest
