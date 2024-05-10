@@ -9,11 +9,16 @@ jobs:
       - name: Get Event
         run: | 
           echo "${{ toJSON(github.event.action) }}"
+          echo "-----------------------------------------------"
           echo "${{ toJSON(github.event.label) }}"
+          echo "-----------------------------------------------"
           echo "${{ toJSON(github.event.changes) }}"
+          echo "-----------------------------------------------"
           echo "${{ toJSON(github.event.milestone) }}"
-          echo "${{ toJSON(github.event.sender) }}"
+          echo "-----------------------------------------------"
+          echo "${{ toJSON(github.event.sender.name) }}"
           echo "-----------------------------------------------"
           echo "${{ toJSON(github.event.issue) }}"
+          echo "-----------------------------------------------"
           echo "${{ toJSON(github.event) }}"
         
