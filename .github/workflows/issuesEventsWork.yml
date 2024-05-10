@@ -8,6 +8,12 @@ jobs:
     steps:
       - name: Get Event
         run: | 
+          echo "${{ github.event.action}}"
+          echo "${{ github.event.label}}"
+          echo "${{ github.event.changes}}"
+          echo "${{ github.event.milestone}}"
+          echo "${{ github.event.sender}}"
+          echo "-----------------------------------------------"
           echo "${{ github.event.issue}}"
           echo "${{ toJSON(github.event) }}"
         
