@@ -3,24 +3,10 @@ on:
   pull_request:
     types: [opened, edited, closed]
   workflow_dispatch:
-#  issues:
-#    types: [opened, edited, milestoned]
 jobs:
-    deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
         - name: Saida dos dados de eventos
-          run: | 
-            echo "${{ toJSON(github.event.action) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event.label) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event.changes) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event.milestone) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event.sender.name) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event.issue) }}"
-            echo "-----------------------------------------------"
-            echo "${{ toJSON(github.event) }}"
+          run: echo "${{ toJSON(github.event.action) }}"
+            
