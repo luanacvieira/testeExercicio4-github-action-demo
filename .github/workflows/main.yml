@@ -1,0 +1,11 @@
+name: Evento issues Teste 
+on: [issues, workflow_dispatch]
+types: [opened, edited, milestoned]
+jobs:
+  issuesTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Event
+        run: | 
+          echo "${{ github.event.issue}}"
+          echo "${{ toJSON(github.event) }}"
