@@ -3,6 +3,20 @@ on:
   pull_request:
     types: [opened, edited, closed]
   workflow_dispatch:
+  push:
+    branches:
+        - main
+        - develop
+        - feature/*
+        - hotfix/*
+        - release/*
+        - bugfix/*
+        - fix/*
+    path-ignore:
+        - '**.md'
+        - '.github/**' #aqui ele aceita barras depos do caminho **
+        - 'docs/**'
+        -  '.github/workflows/*' #aqui ele NÂO aceita barras depos do caminho *
 jobs:
   deploy:
     runs-on: ubuntu-latest
